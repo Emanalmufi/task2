@@ -106,9 +106,7 @@ Programming a web page to control the arms using web series api / writing arudin
 <script>
 </script>
 </body>
-</html>
-
-``
+</html>``
 
 
 ``var speechRecognition = window.webkitSpeechRecognition
