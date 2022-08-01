@@ -214,8 +214,8 @@ textbox.on('input', function() {
     } 
     ```
 
-```
-#include <Servo.h>
+
+```#include <Servo.h>
 Servo gripper;
 Servo wrist;
 Servo elbow;
@@ -288,6 +288,6 @@ void loop() {
     Serial.println(command);
   Serial.println("WORKING");
   delay(1000);
-
 }
+
 ```
