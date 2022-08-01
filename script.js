@@ -1,41 +1,52 @@
-let isConnectted = false;
-      let port;
-      let writer;
-      var target_id;
-      const enc = new TextEncoder();
+var speechRecognition = window.webkitSpeechRecognition
+var recognition = new speechRecognition()
+var textbox = $("#textbox")
+var instructions = $("#instructions")
+var content = ''
 
-      async function onChangespeech() {
-        if (!isConnectted) {
-          alert("you must connect to the usb in order to use this.");
-          return;
-        }
-       
-        try {
-          const commandlist = content;
-          const commandSplit = commandlist.split(" ")
-          const command = commandSplit.slice(-1);
-          const computerText = `${command}@`;
-          await writer.write(enc.encode(computerText));
-        } catch (e) {
-          console.log(e);
-        }
-      }
-    
-      
+recognition.continuous = true
 
-    async function onConnectUsb() {
-      try {
-        const requestOptions = {
-          // Filter on devices with the Arduino USB vendor ID.
-          filters: [{ usbVendorId: 0x2341 }],
-        };
 
-        // Request an Arduino from the user.
-        port = await navigator.serial.requestPort(requestOptions);
-        await port.open({ baudRate: 115200 });
-        writer = port.writable.getWriter();
-        isConnectted = true;
-      } catch (e) {
-        console.log("err", e);
-      }
-    }
+recognition.onstart = function() {
+
+ instructions.text("Voice Recognition is On")
+
+}
+
+recognition.onspeechend = function() {
+
+ instructions.text("No Activity")
+
+}
+
+recognition.onerror = function() {
+
+ instruction.text("Try Again")
+
+}
+
+recognition.onresult = function(event) {
+
+ var current = event.resultIndex;
+
+ var transcript = event.results[current][0].transcript
+
+
+
+ content += transcript
+ onChangespeech()
+ textbox.val(content)
+
+}
+
+$("#start-btn").click(function(event) {
+
+ recognition.start()
+
+})
+
+textbox.on('input', function() {
+
+ content = $(this).val()
+
+})
