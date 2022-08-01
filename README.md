@@ -3,7 +3,8 @@
 Programming a web page to control the arms using web series api / writing arudino code related to the controller
 
 
-`` <!DOCTYPE html>
+``
+<!DOCTYPE html>
 
 <html lang="en" dir="ltr">
 
@@ -105,7 +106,9 @@ Programming a web page to control the arms using web series api / writing arudin
 <script>
 </script>
 </body>
-</html>``
+</html>
+
+``
 
 
 ``var speechRecognition = window.webkitSpeechRecognition
