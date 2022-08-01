@@ -1,6 +1,9 @@
 # task2
-``
-<!DOCTYPE html>
+
+Programming a web page to control the arms using web series api / writing arudino code related to the controller
+
+
+`` <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
 
@@ -102,11 +105,10 @@
 <script>
 </script>
 </body>
-</html>
-``
+</html>``
 
-``
-var speechRecognition = window.webkitSpeechRecognition
+
+``var speechRecognition = window.webkitSpeechRecognition
 
 var recognition = new speechRecognition()
 
@@ -161,11 +163,10 @@ textbox.on('input', function() {
 
  content = $(this).val()
 
-})
-``
+})``
 
-``
- let isConnectted = false;
+
+ `` let isConnectted = false;
       let port;
       let writer;
       var target_id;
@@ -205,8 +206,7 @@ textbox.on('input', function() {
       } catch (e) {
         console.log("err", e);
       }
-    }
-``
+    } ``
 
 ``
 #include <Servo.h>
